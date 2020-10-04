@@ -5,9 +5,100 @@
     <title>Task Timeline</title>
     <link rel="stylesheet" href="main.css">
   </head>
-  <body></body>
-    <h1>Vandy Hack</h1>
+  <style>
+    .observablehq-printImage{
+      position: absolute;
+      text-align: center; 
+    }
+    .observablehq-viewof-image_viewer{
+      /* position: relative;
+      top: 50px; */
+      text-align: center; 
+    }
+    
+    .observablehq-viewof-image{
+      /* position: relative;
+      top: 100px; */
+      background-color: powderblue;
+      text-align: center;
+    }
 
+    .observablehq-viewof-numberOfSamples{
+      /* position: relative;
+      top: 10px; */
+      text-align: center;
+    }
+
+    .observablehq-viewof-strokeStyle{
+      /* position: relative;
+      top: 150px; *
+      /* top: 50px; */
+      /* position: absolute; */
+      /* position: relative;
+      top: 200px; */
+      /* position: relative;
+      top: 10px; */
+      text-align: center;
+    }
+
+    .algo1{
+      /* position: relative;
+      top: 20px; */
+      text-align: left;
+    }
+
+    .observablehq-viewof-samples{
+      /* top: 50px; */
+      /* border: 5px outset lightblue; */
+      /* position: absolute; */
+      /* position: relative;
+      top: 30px; */
+      background-color: lightblue;
+      text-align: center;
+    }
+
+    .algo2{
+      /* position: relative;
+      top: 25px; */
+      text-align: left;
+    }
+
+    .observablehq-viewof-points{
+      /* position: relative;
+      top: 300px; */
+      /* position: relative;
+      top: 30px; */
+      background-color: lightcyan;
+      text-align: center;
+    }
+
+    .observablehq-viewof-lineWidth{
+      /* position: relative;
+      top: 80px; */
+      text-align: center;
+    }
+
+    .algo3{
+      /* position: relative;
+      top: 90px; */
+      /* text-align: left; */
+    }
+
+    .observablehq-tsp{
+      /* position: relative;
+      top: 60px; */
+      background-color: lightblue;
+      text-align: center;
+    }
+
+    
+
+  </style>
+  <body>
+    <div class="header">
+      <h1>AlgoArt</h1>
+      <p>Customize Your Own Modern Art!</p>
+    </div>
 
     <div id="observablehq-d16ce3fb">
       <div class="observablehq-printImage"></div>
@@ -15,61 +106,40 @@
       <div class="observablehq-image_viewer"></div>
       <div class="observablehq-viewof-image"></div>
       <div class="observablehq-viewof-numberOfSamples"></div>
-      <div class="observablehq-viewof-lineWidth"></div>
       <div class="observablehq-viewof-strokeStyle"></div>
-      <div class="observablehq-viewof-paused"></div>
-      <div class="observablehq-viewof-samples"></div>
-      <div class="observablehq-viewof-start2"></div>
+      <div class="algo1">
+        <p>
+          The first step is to sample points from the image in such a way that points are more concentrated in darker regions. 
+          We use a form of rejection sampling. 
+          It works as follows: we take a random pixel from the image, we keep if its intensity is below a random number between 0 and 200, otherwise we reject it. 
+          To produce one sample we repeat that process until the point is accepted or we keep it after 100 attempts. In the end we sample 1000 points from the input image. The implementation of these two first steps are based on Mike Bostock's notebook which is in turn inspired by the work of Adrian Secord on Voronoi Stippling.
+        </p>
+      </div>
+      <div class="observablehq-viewof-samples" > </div>
+      
+      <div class="algo2">
+        <p>
+          In the second step, we reordered the sampled points to obtain a better looking distribution. 
+          We use a weigthed variant of Lloyd's algorithm. 
+          Given the initial set of points, we compute the Voronoi's diagram. 
+          Then we move each point to a weigthed centroid of its Voronoi region. 
+          To compute the centroid each point in the region is weighted according to its intensity in the image. 
+          Darker points get higher weights making points move around darker regions. The result is shown below.
+        </p>
+      </div>
       <div class="observablehq-viewof-points"></div>
-      <div class="observablehq-viewof-start3"></div>
+      <div class="algo3">
+        <p>
+          The final step is just to solve the Traveling Salesman Problem using the resulting points as cities. 
+          Our implemententation uses a Hill-climbing heuristic. 
+          The process starts with a random solution and finds new candidates using 2-opt swaps. 
+          This strategey is good enough to find a local optimum where the drawing line does not cross itself. 
+          The result is shown below.
+        </p>
+      </div>
+      <div class="observablehq-viewof-lineWidth"></div>
       <div class="observablehq-tsp"></div>
     </div>
-
-
-    <style>
-      #observablehq-viewof-image canvas{
-        position: relative;
-        width: 10%;
-        height: 10%;
-        border: 1px solid red;
-      }
-    </style>
-
-    <!-- <input type="file" id="real-file" hidden="hidden" />
-    <button type="button" id="custom-button">CHOOSE A FILE</button>
-    <span id="custom-text">No file chosen, yet.</span> -->
-
-    <!-- <script>
-      function myFunction() {
-        var x = document.createElement("CANVAS");
-        var ctx = x.getContext("2d");
-        ctx.fillStyle = "#FF0000";
-        ctx.fillRect(20, 20, 150, 100);
-        document.body.appendChild(x);
-      }
-      </script>
- -->
-
-    <!-- <script type="text/javascript">
-
-        const realFileBtn = document.getElementById("real-file");
-        const customBtn = document.getElementById("custom-button");
-        const customTxt = document.getElementById("custom-text");
-
-        customBtn.addEventListener("click", function() {
-            realFileBtn.click();
-        });
-
-        realFileBtn.addEventListener("change", function() {
-            if (realFileBtn.value) {
-                customTxt.innerHTML = realFileBtn.value.match(
-                /[\/\\]([\w\d\s\.\-\(\)]+)$/
-                )[1];
-            } else {
-                customTxt.innerHTML = "No file chosen, yet.";
-            }
-        });
-    </script> -->
 
     <script type="module">
 
@@ -89,18 +159,13 @@
         // if (name === "image_viewer") return Inspector.into("#observablehq-d16ce3fb .observablehq-image_viewer")();
         if (name === "viewof image") return Inspector.into("#observablehq-d16ce3fb .observablehq-viewof-image")();
         if (name === "viewof numberOfSamples") return Inspector.into("#observablehq-d16ce3fb .observablehq-viewof-numberOfSamples")();
-        if (name === "viewof lineWidth") return Inspector.into("#observablehq-d16ce3fb .observablehq-viewof-lineWidth")();
         if (name === "viewof strokeStyle") return Inspector.into("#observablehq-d16ce3fb .observablehq-viewof-strokeStyle")();
-        if (name === "viewof paused") return Inspector.into("#observablehq-d16ce3fb .observablehq-viewof-paused")();
         if (name === "viewof samples") return Inspector.into("#observablehq-d16ce3fb .observablehq-viewof-samples")();
-        if (name === "viewof start2") return Inspector.into("#observablehq-d16ce3fb .observablehq-viewof-start2")();
         if (name === "viewof points") return Inspector.into("#observablehq-d16ce3fb .observablehq-viewof-points")();
-        if (name === "viewof start3") return Inspector.into("#observablehq-d16ce3fb .observablehq-viewof-start3")();
+        if (name === "viewof lineWidth") return Inspector.into("#observablehq-d16ce3fb .observablehq-viewof-lineWidth")();
         if (name === "tsp") return Inspector.into("#observablehq-d16ce3fb .observablehq-tsp")();
         });
     </script>
-
-
 
 
     <script src="app.js"></script>

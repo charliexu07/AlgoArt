@@ -5,6 +5,13 @@ body {
     background-size: 50%; */
 }
 
+.header {
+    padding: 10px;
+    text-align: center;
+    background:#2e416a;
+    color: darkgoldenrod;
+    font-size: 30px;
+  }
 
 /* observablehq-cb04c636{
     width:100%;
