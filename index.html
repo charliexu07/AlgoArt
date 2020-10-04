@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Task Timeline</title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body></body>
+    <h1>Vandy Hack</h1>
+
+  
+
+
+
+    </div>
+    <div id="observablehq-cb04c636">
+    <div class="observablehq-viewof-image_viewer" ></div>
+    <div class="observablehq-image_viewer" ></div>
+    <div class="observablehq-viewof-image" ></div>
+    <div class="observablehq-viewof-samples" ></div>
+    <div class="observablehq-viewof-points" ></div>
+    <div class="observablehq-tsp" ></div>
+    </div>
+
+
+    <style>
+      #observablehq-viewof-image canvas{
+        position: relative;
+        width: 10%;
+        height: 10%;
+        border: 1px solid red;
+      }
+    </style>
+
+    <!-- <input type="file" id="real-file" hidden="hidden" />
+    <button type="button" id="custom-button">CHOOSE A FILE</button>
+    <span id="custom-text">No file chosen, yet.</span> -->
+
+    <!-- <script>
+      function myFunction() {
+        var x = document.createElement("CANVAS");
+        var ctx = x.getContext("2d");
+        ctx.fillStyle = "#FF0000";
+        ctx.fillRect(20, 20, 150, 100);
+        document.body.appendChild(x);
+      }
+      </script>
+ -->
+
+    <!-- <script type="text/javascript">
+
+        const realFileBtn = document.getElementById("real-file");
+        const customBtn = document.getElementById("custom-button");
+        const customTxt = document.getElementById("custom-text");
+
+        customBtn.addEventListener("click", function() {
+            realFileBtn.click();
+        });
+
+        realFileBtn.addEventListener("change", function() {
+            if (realFileBtn.value) {
+                customTxt.innerHTML = realFileBtn.value.match(
+                /[\/\\]([\w\d\s\.\-\(\)]+)$/
+                )[1];
+            } else {
+                customTxt.innerHTML = "No file chosen, yet.";
+            }
+        });
+    </script> -->
+
+    <script type="module">
+
+        import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+        import define from "https://api.observablehq.com/@charliexu07/tsp-art.js?v=3";
+        (new Runtime).module(define, name => {
+        if (name === "viewof image_viewer") var img = Inspector.into("#observablehq-cb04c636 .observablehq-viewof-image_viewer")();
+        // if (name === "image_viewer") var img = Inspector.into("#observablehq-cb04c636 .observablehq-image_viewer")();
+        if (name === "viewof image") var img = Inspector.into("#observablehq-cb04c636 .observablehq-viewof-image")();
+        if (name === "viewof samples") var img = Inspector.into("#observablehq-cb04c636 .observablehq-viewof-samples")();
+        if (name === "viewof points") var img = Inspector.into("#observablehq-cb04c636 .observablehq-viewof-points")();
+        if (name === "tsp") var img = Inspector.into("#observablehq-cb04c636 .observablehq-tsp")();
+
+        return img;
+        });
+    </script>
+
+
+
+
+    <script src="app.js"></script>
+    <noscript>You need to enable JavaScript to view the full site.</noscript>
+  </body>
+</html>
