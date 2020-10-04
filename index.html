@@ -8,18 +8,21 @@
   <body></body>
     <h1>Vandy Hack</h1>
 
-  
 
-
-
-    </div>
-    <div id="observablehq-cb04c636">
-    <div class="observablehq-viewof-image_viewer" ></div>
-    <div class="observablehq-image_viewer" ></div>
-    <div class="observablehq-viewof-image" ></div>
-    <div class="observablehq-viewof-samples" ></div>
-    <div class="observablehq-viewof-points" ></div>
-    <div class="observablehq-tsp" ></div>
+    <div id="observablehq-d16ce3fb">
+      <div class="observablehq-printImage"></div>
+      <div class="observablehq-viewof-image_viewer"></div>
+      <div class="observablehq-image_viewer"></div>
+      <div class="observablehq-viewof-image"></div>
+      <div class="observablehq-viewof-numberOfSamples"></div>
+      <div class="observablehq-viewof-lineWidth"></div>
+      <div class="observablehq-viewof-strokeStyle"></div>
+      <div class="observablehq-viewof-paused"></div>
+      <div class="observablehq-viewof-samples"></div>
+      <div class="observablehq-viewof-start2"></div>
+      <div class="observablehq-viewof-points"></div>
+      <div class="observablehq-viewof-start3"></div>
+      <div class="observablehq-tsp"></div>
     </div>
 
 
@@ -73,14 +76,27 @@
         import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
         import define from "https://api.observablehq.com/@charliexu07/tsp-art.js?v=3";
         (new Runtime).module(define, name => {
-        if (name === "viewof image_viewer") var img = Inspector.into("#observablehq-cb04c636 .observablehq-viewof-image_viewer")();
+        // if (name === "viewof image_viewer") var img = Inspector.into("#observablehq-cb04c636 .observablehq-viewof-image_viewer")();
         // if (name === "image_viewer") var img = Inspector.into("#observablehq-cb04c636 .observablehq-image_viewer")();
-        if (name === "viewof image") var img = Inspector.into("#observablehq-cb04c636 .observablehq-viewof-image")();
-        if (name === "viewof samples") var img = Inspector.into("#observablehq-cb04c636 .observablehq-viewof-samples")();
-        if (name === "viewof points") var img = Inspector.into("#observablehq-cb04c636 .observablehq-viewof-points")();
-        if (name === "tsp") var img = Inspector.into("#observablehq-cb04c636 .observablehq-tsp")();
+        // if (name === "viewof image") var img = Inspector.into("#observablehq-cb04c636 .observablehq-viewof-image")();
+        // if (name === "viewof samples") var img = Inspector.into("#observablehq-cb04c636 .observablehq-viewof-samples")();
+        // if (name === "viewof points") var img = Inspector.into("#observablehq-cb04c636 .observablehq-viewof-points")();
+        // if (name === "tsp") var img = Inspector.into("#observablehq-cb04c636 .observablehq-tsp")();
 
-        return img;
+        // return img;
+        if (name === "printImage") return Inspector.into("#observablehq-d16ce3fb .observablehq-printImage")();
+        if (name === "viewof image_viewer") return Inspector.into("#observablehq-d16ce3fb .observablehq-viewof-image_viewer")();
+        // if (name === "image_viewer") return Inspector.into("#observablehq-d16ce3fb .observablehq-image_viewer")();
+        if (name === "viewof image") return Inspector.into("#observablehq-d16ce3fb .observablehq-viewof-image")();
+        if (name === "viewof numberOfSamples") return Inspector.into("#observablehq-d16ce3fb .observablehq-viewof-numberOfSamples")();
+        if (name === "viewof lineWidth") return Inspector.into("#observablehq-d16ce3fb .observablehq-viewof-lineWidth")();
+        if (name === "viewof strokeStyle") return Inspector.into("#observablehq-d16ce3fb .observablehq-viewof-strokeStyle")();
+        if (name === "viewof paused") return Inspector.into("#observablehq-d16ce3fb .observablehq-viewof-paused")();
+        if (name === "viewof samples") return Inspector.into("#observablehq-d16ce3fb .observablehq-viewof-samples")();
+        if (name === "viewof start2") return Inspector.into("#observablehq-d16ce3fb .observablehq-viewof-start2")();
+        if (name === "viewof points") return Inspector.into("#observablehq-d16ce3fb .observablehq-viewof-points")();
+        if (name === "viewof start3") return Inspector.into("#observablehq-d16ce3fb .observablehq-viewof-start3")();
+        if (name === "tsp") return Inspector.into("#observablehq-d16ce3fb .observablehq-tsp")();
         });
     </script>
 
