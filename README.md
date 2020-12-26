@@ -22,7 +22,7 @@ Vandy Logo             |  Vandy Star
 
 ## Instructions
 ### Method 1:
-1. Enter https://charliexu07.github.io/AlgoArt/mask-2.html on your browser
+1. Visit https://charliexu07.github.io/AlgoArt/mask-2.html on your browser
 2. Follow through the instructions on the webpage to generate customized images
 ### Method 2:
 1. Clone/download this project to your local machine
