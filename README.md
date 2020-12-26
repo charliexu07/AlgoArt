@@ -21,6 +21,10 @@ Vandy Logo             |  Vandy Star
 ![](https://github.com/charliexu07/AlgoArt/blob/main/images/Demo4.png)  |  ![](https://github.com/charliexu07/AlgoArt/blob/main/images/Demo5.png)
 
 ## Instructions
+### Method 1:
+1. Enter https://charliexu07.github.io/AlgoArt/mask-2.html on your browser
+2. Follow through the instructions on the webpage to generate customized images
+### Method 2:
 1. Clone/download this project to your local machine
 2. Open project with Visual Studio Code/Sublime or any preferred IDEs
 3. Right-click mask-2.html to Open In Default Browser
